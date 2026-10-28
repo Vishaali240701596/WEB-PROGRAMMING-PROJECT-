@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Interactive Online Quiz Application built with HTML, CSS and JavaScript.">
+  <title>Online Quiz Application</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== Top navigation bar ===== -->
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <span class="logo-mark" aria-hidden="true">Q</span>
+        <span class="brand-name">QuizMaster</span>
+      </div>
+      <span class="topbar-tag">Interactive Online Quiz Application</span>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- ===================== A. WELCOME SCREEN ===================== -->
+    <section id="welcome-screen" class="screen active" aria-labelledby="welcome-title">
+      <div class="hero">
+
+        <div class="hero-text">
+          <span class="eyebrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg> Online Quiz Application</span>
+          <h1 id="welcome-title">Challenge Your <span class="gradient-text">Knowledge</span></h1>
+          <p class="hero-desc">
+            Pick a unit, read its study notes, then test yourself with timed
+            multiple-choice questions. Get instant results, a detailed score
+            breakdown and a full answer review at the end.
+          </p>
+
+          <ul class="info-chips">
+            <li class="chip"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg> 10 Questions</li>
+            <li class="chip"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> About 5 Minutes</li>
+            <li class="chip"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg> Instant Results</li>
+            <li class="chip"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Notes for Every Unit</li>
+          </ul>
+        </div>
+
+        <div class="card form-card">
+          <h2 class="card-title">Start a new quiz</h2>
+
+          <form id="start-form" novalidate>
+            <div class="field">
+              <label for="student-name">Your name</label>
+              <input id="student-name" type="text" maxlength="30" placeholder="Enter your full name" autocomplete="name">
+              <p id="name-error" class="error" role="alert"></p>
+            </div>
+
+            <fieldset class="field">
+              <legend>Choose a unit</legend>
+
+              <p class="group-label">Syllabus units &middot; Web Programming</p>
+              <div class="category-grid">
+                <label class="choice-card">
+                  <input type="radio" name="category" value="unit1" checked>
+                  <span class="choice-body">
+                    <span class="choice-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
+                    <span class="choice-text">
+                      <span class="choice-title">Unit I</span>
+                      <span class="choice-sub">Web basics, HTML, CSS, Git</span>
+                    </span>
+                  </span>
+                </label>
+                <label class="choice-card">
+                  <input type="radio" name="category" value="unit2">
+                  <span class="choice-body">
+                    <span class="choice-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
+                    <span class="choice-text">
+                      <span class="choice-title">Unit II</span>
+                      <span class="choice-sub">JavaScript, DOM, events</span>
+                    </span>
+                  </span>
+                </label>
+                <label class="choice-card">
+                  <input type="radio" name="category" value="unit3">
+                  <span class="choice-body">
+                    <span class="choice-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></span>
+                    <span class="choice-text">
+                      <span class="choice-title">Unit III</span>
+                      <span class="choice-sub">PHP and Bootstrap</span>
+                    </span>
+                  </span>
+                </label>
+                <label class="choice-card">
+                  <input type="radio" name="category" value="unit4">
+                  <span class="choice-body">
+                    <span class="choice-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span>
+                    <span class="choice-text">
+                      <span class="choice-title">Unit IV</span>
+                      <span class="choice-sub">JSX, components, lifecycle</span>
+                    </span>
+                  </span>
+                </label>
+                <label class="choice-card">
+                  <input type="radio" name="category" value="unit5">
+                  <span class="choice-body">
+                    <span class="choice-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></span>
+                    <span class="choice-text">
+                      <span class="choice-title">Unit V</span>
+                      <span class="choice-sub">State, props, hooks, routing</span>
+                    </span>
+                  </span>
+                </label>
+              </div>
+
+              <p class="group-label">General subjects &middot; quiz only</p>
+              <div class="category-grid">
+                <label class="choice-card">
+                  <input type="radio" name="category" value="General Knowledge">
+                  <span class="choice-body">
+                    <span class="choice-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></span>
+                    <span class="choice-text">
+                      <span class="choice-title">General Knowledge</span>
+                      <span class="choice-sub">Facts about the world</span>
+                    </span>
+                  </span>
+                </label>
+                <label class="choice-card">
+                  <input type="radio" name="category" value="Computer Science">
+                  <span class="choice-body">
+                    <span class="choice-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>
+                    <span class="choice-text">
+                      <span class="choice-title">Computer Science</span>
+                      <span class="choice-sub">Core CS concepts</span>
+                    </span>
+                  </span>
+                </label>
+                <label class="choice-card">
+                  <input type="radio" name="category" value="Web Development">
+                  <span class="choice-body">
+                    <span class="choice-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+                    <span class="choice-text">
+                      <span class="choice-title">Web Development</span>
+                      <span class="choice-sub">Mixed HTML, CSS &amp; JS</span>
+                    </span>
+                  </span>
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset class="field">
+              <legend>Select difficulty</legend>
+              <div class="difficulty-group">
+                <label class="pill">
+                  <input type="radio" name="difficulty" value="Easy" checked>
+                  <span>Easy</span>
+                </label>
+                <label class="pill">
+                  <input type="radio" name="difficulty" value="Medium">
+                  <span>Medium</span>
+                </label>
+                <label class="pill">
+                  <input type="radio" name="difficulty" value="Hard">
+                  <span>Hard</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Start Quiz &rarr;</button>
+              <button type="button" id="notes-btn" class="btn btn-secondary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Study Notes</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================= B. QUIZ SCREEN ======================= -->
+    <section id="quiz-screen" class="screen" aria-label="Quiz">
+      <div class="quiz-wrap">
+
+        <div class="card quiz-header">
+          <div class="quiz-meta">
+            <div id="student-avatar" class="avatar" aria-hidden="true">S</div>
+            <div>
+              <p id="quiz-student-name" class="meta-name"></p>
+              <p class="meta-sub">
+                <span id="quiz-category" class="badge"></span>
+                <span id="quiz-difficulty" class="badge badge-soft"></span>
+              </p>
+            </div>
+          </div>
+          <div id="timer-box" class="timer" role="timer" aria-label="Time remaining">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span id="timer-text">05:00</span>
+          </div>
+        </div>
+
+        <div class="card quiz-card">
+          <div class="progress-info">
+            <span id="question-counter" class="question-counter">Question 1 of 10</span>
+            <span id="answered-counter" class="answered-counter">Answered: 0/10</span>
+          </div>
+
+          <div id="progress-bar" class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div id="progress-fill" class="progress-fill"></div>
+          </div>
+
+          <div id="question-area" class="question-area">
+            <h2 id="question-text" class="question-text"></h2>
+            <div id="options" class="options"></div>
+            <p id="quiz-warning" class="warning" role="alert"></p>
+          </div>
+
+          <div class="quiz-actions">
+            <button type="button" id="prev-btn" class="btn btn-secondary">&larr; Previous</button>
+            <button type="button" id="exit-btn" class="btn btn-ghost">Exit Quiz</button>
+            <button type="button" id="next-btn" class="btn btn-primary">Next Question &rarr;</button>
+            <button type="button" id="submit-btn" class="btn btn-success" hidden>Submit Quiz &#10003;</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===================== STUDY NOTES SCREEN ===================== -->
+    <section id="notes-screen" class="screen" aria-labelledby="notes-title">
+      <div class="notes-wrap">
+
+        <div class="card notes-header">
+          <div>
+            <p id="notes-unit-label" class="notes-unit-label"></p>
+            <h1 id="notes-title" class="notes-title"></h1>
+            <p id="notes-count" class="notes-count"></p>
+          </div>
+          <div class="notes-top-actions">
+            <button type="button" id="notes-back-btn" class="btn btn-secondary">&larr; Back</button>
+            <button type="button" id="notes-start-btn" class="btn btn-primary">Take the Quiz &rarr;</button>
+          </div>
+        </div>
+
+        <nav id="notes-contents-box" class="card notes-contents" aria-label="Contents of these notes" hidden>
+          <p class="notes-contents-title">On this page</p>
+          <ol id="notes-contents"></ol>
+        </nav>
+
+        <article id="notes-body" class="card notes-body"></article>
+
+        <div class="notes-bottom">
+          <button type="button" id="notes-back-btn-bottom" class="btn btn-secondary">&larr; Back</button>
+          <button type="button" id="notes-start-btn-bottom" class="btn btn-primary">Take the Quiz &rarr;</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===================== D. RESULTS SCREEN ===================== -->
+    <section id="result-screen" class="screen" aria-label="Quiz results">
+      <div class="card result-card">
+        <h1 id="result-greeting" class="result-greeting"></h1>
+        <p id="result-message" class="result-message"></p>
+        <p id="result-notice" class="notice" hidden></p>
+
+        <div class="result-layout">
+          <div class="score-ring" role="img" aria-label="Score indicator">
+            <svg class="ring-svg" viewBox="0 0 120 120" aria-hidden="true">
+              <defs>
+                <linearGradient id="ring-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#f97316"></stop>
+                  <stop offset="100%" stop-color="#ea6c0a"></stop>
+                </linearGradient>
+              </defs>
+              <circle class="ring-bg" cx="60" cy="60" r="54"></circle>
+              <circle id="ring-fill" class="ring-fill" cx="60" cy="60" r="54"></circle>
+            </svg>
+            <div class="ring-text">
+              <strong id="score-percent">0%</strong>
+              <span id="score-fraction">0/10</span>
+            </div>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat stat-correct">
+              <span class="stat-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#166534" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+              <span id="stat-correct" class="stat-value">0</span>
+              <span class="stat-label">Correct</span>
+            </div>
+            <div class="stat stat-incorrect">
+              <span class="stat-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#991b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+              <span id="stat-incorrect" class="stat-value">0</span>
+              <span class="stat-label">Incorrect</span>
+            </div>
+            <div class="stat stat-unanswered">
+              <span class="stat-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#92400e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+              <span id="stat-unanswered" class="stat-value">0</span>
+              <span class="stat-label">Unanswered</span>
+            </div>
+            <div class="stat stat-time">
+              <span class="stat-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+              <span id="stat-time" class="stat-value">0s</span>
+              <span class="stat-label">Time taken</span>
+            </div>
+          </div>
+        </div>
+
+        <p id="result-meta" class="result-meta"></p>
+
+        <div class="result-actions">
+          <button type="button" id="review-btn" class="btn btn-primary">Review Answers</button>
+          <button type="button" id="result-notes-btn" class="btn btn-secondary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Study Unit Notes</button>
+          <button type="button" id="restart-btn" class="btn btn-secondary">Restart Quiz</button>
+          <button type="button" id="home-btn" class="btn btn-ghost">Back to Home</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== E. REVIEW SCREEN ===================== -->
+    <section id="review-screen" class="screen" aria-labelledby="review-title">
+      <div class="review-wrap">
+        <div class="card review-header">
+          <div>
+            <h1 id="review-title" class="review-title">Answer Review</h1>
+            <p id="review-summary" class="review-summary"></p>
+          </div>
+          <div class="review-top-actions">
+            <button type="button" id="review-back-btn" class="btn btn-secondary">&larr; Back to Results</button>
+            <button type="button" id="review-restart-btn" class="btn btn-primary">Restart Quiz</button>
+          </div>
+        </div>
+
+        <div id="review-list" class="review-list"></div>
+
+        <div class="review-bottom">
+          <button type="button" id="review-back-btn-bottom" class="btn btn-secondary">&larr; Back to Results</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>Online Quiz Application &bull; Built with HTML, CSS &amp; JavaScript</p>
+  </footer>
+
+  <!-- =====================================================================
+     STUDY NOTES  (one block per unit)
+     HOW TO ADD YOUR NOTES
+       1. Find the <template id="notes-unit1"> ... </template> block of the unit.
+       2. Delete everything between the two template tags.
+       3. Paste your notes there, written as normal HTML:
+            <h2>Section heading</h2>     (shows in the "On this page" list)
+            <h3>Sub heading</h3>
+            <p>A paragraph.</p>
+            <ul><li>Bullet point</li></ul>   <ol><li>Numbered point</li></ol>
+            <table>, <pre><code>code sample</code></pre>, <img src="picture.png" alt="...">
+            <div class="note-box tip">A tip</div>  (also: note-box warning)
+       4. Save and refresh the browser. No JavaScript needs to be changed.
+     ===================================================================== -->
+  <template id="notes-unit1">
+    <h2>Study notes (PDF)</h2>
+    <div class="pdf-viewer">
+      <div class="pdf-actions">
+        <span class="pdf-name"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Unit I &ndash; Web Basics, HTML and CSS notes</span>
+        <a class="btn btn-secondary" href="notes/unit1.pdf" target="_blank" rel="noopener">Open in new tab</a>
+        <a class="btn btn-secondary" href="notes/unit1.pdf" download>Download</a>
+      </div>
+      <object class="pdf-frame" data="notes/unit1.pdf#view=FitH" type="application/pdf" aria-label="Unit I &ndash; Web Basics, HTML and CSS notes">
+        <p class="pdf-fallback">Your browser cannot show PDFs inside the page. Use <strong>Open in new tab</strong> or <strong>Download</strong> above to read the notes.</p>
+      </object>
+    </div>
+
+    <h2>Topics covered in this unit (quick checklist)</h2>
+    <h3>Web basics and the Internet</h3>
+    <ul>
+      <li>Introduction</li>
+      <li>World Wide Web and its evolution</li>
+      <li>E-mail, Telnet and FTP</li>
+      <li>E-commerce</li>
+      <li>Cloud computing</li>
+      <li>Video conferencing</li>
+      <li>Internet service providers</li>
+      <li>IP address</li>
+      <li>URL</li>
+      <li>Domain name servers</li>
+      <li>Web browsers</li>
+      <li>Search engine</li>
+      <li>Web server vs application server</li>
+    </ul>
+    <h3>HTML</h3>
+    <ul>
+      <li>HTML tags</li>
+      <li>Structure of an HTML page</li>
+      <li>Block elements</li>
+      <li>Text elements</li>
+      <li>Lists</li>
+      <li>Images</li>
+      <li>section, article and aside elements</li>
+    </ul>
+    <h3>CSS</h3>
+    <ul>
+      <li>CSS overview</li>
+      <li>CSS rules</li>
+      <li>CSS syntax and style</li>
+      <li>Class selectors</li>
+      <li>ID selectors</li>
+      <li>span and div elements</li>
+      <li>Cascading</li>
+      <li>style attribute</li>
+      <li>style container</li>
+      <li>External CSS files</li>
+      <li>CSS properties: colour, font, line-height, text and border</li>
+      <li>Element box, padding property and margin property</li>
+    </ul>
+    <h3>Hosting and Git</h3>
+    <ul>
+      <li>Hosting a website</li>
+      <li>Git</li>
+    </ul>
+  </template>
+
+  <template id="notes-unit2">
+    <h2>Study notes (PDF)</h2>
+    <div class="pdf-viewer">
+      <div class="pdf-actions">
+        <span class="pdf-name"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Unit II &ndash; JavaScript notes</span>
+        <a class="btn btn-secondary" href="notes/unit2.pdf" target="_blank" rel="noopener">Open in new tab</a>
+        <a class="btn btn-secondary" href="notes/unit2.pdf" download>Download</a>
+      </div>
+      <object class="pdf-frame" data="notes/unit2.pdf#view=FitH" type="application/pdf" aria-label="Unit II &ndash; JavaScript notes">
+        <p class="pdf-fallback">Your browser cannot show PDFs inside the page. Use <strong>Open in new tab</strong> or <strong>Download</strong> above to read the notes.</p>
+      </object>
+    </div>
+
+    <h2>Topics covered in this unit (quick checklist)</h2>
+    <h3>JavaScript basics</h3>
+    <ul>
+      <li>Hello World web page</li>
+      <li>Buttons</li>
+      <li>Functions</li>
+      <li>Variables</li>
+      <li>Identifiers</li>
+      <li>Assignment statements and objects</li>
+      <li>External JavaScript files</li>
+    </ul>
+    <h3>Document Object Model and forms</h3>
+    <ul>
+      <li>Document Object Model</li>
+      <li>Forms: the form element and controls</li>
+      <li>Text control and accessing a form's control values</li>
+      <li>reset and focus methods</li>
+      <li>Radio buttons and checkboxes</li>
+      <li>fieldset and legend elements</li>
+      <li>Textarea controls</li>
+      <li>Pull-down menus and list boxes</li>
+    </ul>
+    <h3>Events, loops and graphics</h3>
+    <ul>
+      <li>Event handler attributes: onchange, onmouseover, onmouseout</li>
+      <li>Event handler and listener</li>
+      <li>while loop</li>
+      <li>do loop</li>
+      <li>for loop</li>
+      <li>Manipulating CSS with JavaScript</li>
+      <li>Using z-index to stack elements</li>
+      <li>Canvas and drawing</li>
+    </ul>
+  </template>
+
+  <template id="notes-unit3">
+    <h2>Study notes (PDF)</h2>
+    <div class="pdf-viewer">
+      <div class="pdf-actions">
+        <span class="pdf-name"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Unit III &ndash; PHP and Bootstrap notes</span>
+        <a class="btn btn-secondary" href="notes/unit3.pdf" target="_blank" rel="noopener">Open in new tab</a>
+        <a class="btn btn-secondary" href="notes/unit3.pdf" download>Download</a>
+      </div>
+      <object class="pdf-frame" data="notes/unit3.pdf#view=FitH" type="application/pdf" aria-label="Unit III &ndash; PHP and Bootstrap notes">
+        <p class="pdf-fallback">Your browser cannot show PDFs inside the page. Use <strong>Open in new tab</strong> or <strong>Download</strong> above to read the notes.</p>
+      </object>
+    </div>
+
+    <h2>Topics covered in this unit (quick checklist)</h2>
+    <h3>PHP</h3>
+    <ul>
+      <li>Introduction</li>
+      <li>Working principle of PHP</li>
+      <li>Variables</li>
+      <li>Constants</li>
+      <li>Operators</li>
+      <li>Flow control and looping</li>
+      <li>Arrays</li>
+      <li>Strings</li>
+      <li>Functions</li>
+      <li>File handling</li>
+      <li>PHP and HTML</li>
+      <li>Simple PHP scripts</li>
+      <li>Databases with PHP</li>
+    </ul>
+    <h3>Bootstrap</h3>
+    <ul>
+      <li>Bootstrap background and features</li>
+      <li>Getting started with Bootstrap</li>
+      <li>Grids</li>
+      <li>Components</li>
+      <li>Menus and navigations</li>
+      <li>Plugins</li>
+      <li>Flexbox and layouts</li>
+    </ul>
+  </template>
+
+  <template id="notes-unit4">
+    <div class="note-box">
+      <strong>Unit IV &middot; ReactJS.</strong>
+      Study notes prepared from the R2023 syllabus topics: environment setup, basics, JSX, components, component API, life cycle, constructors, Dev Tools and React Native vs ReactJS.
+    </div>
+
+    <h2>1. React Environment Setup</h2>
+    <p>React is a JavaScript library for building user interfaces, created by Facebook (now Meta) and released in 2013. To work with it you need <strong>Node.js</strong> (which includes the <code>npm</code> package manager) and a code editor such as VS Code.</p>
+    <h3>Steps to create a React app</h3>
+    <ol>
+      <li>Install Node.js and check it with <code>node -v</code> and <code>npm -v</code>.</li>
+      <li>Create the project:
+<pre><code>npx create-react-app my-app
+cd my-app
+npm start</code></pre>
+      </li>
+      <li>The development server opens at <code>http://localhost:3000</code> and reloads when you save a file.</li>
+      <li>Build for production with <code>npm run build</code>.</li>
+    </ol>
+    <div class="note-box tip">Newer projects are often created with <code>npm create vite@latest my-app -- --template react</code>. Vite starts faster than Create React App, but the React code you write is the same.</div>
+    <h3>Project folder structure</h3>
+    <table>
+      <tr><th>File / folder</th><th>Purpose</th></tr>
+      <tr><td><code>public/index.html</code></td><td>The single HTML page; contains <code>&lt;div id="root"&gt;</code> where React draws the UI.</td></tr>
+      <tr><td><code>src/index.js</code></td><td>Entry point; renders the root component into the <code>root</code> div.</td></tr>
+      <tr><td><code>src/App.js</code></td><td>The main (root) component.</td></tr>
+      <tr><td><code>package.json</code></td><td>Lists dependencies and scripts (<code>start</code>, <code>build</code>, <code>test</code>).</td></tr>
+      <tr><td><code>node_modules/</code></td><td>Installed packages.</td></tr>
+    </table>
+
+    <h2>2. ReactJS Basics</h2>
+    <ul>
+      <li><strong>Component-based:</strong> the UI is split into small, reusable pieces.</li>
+      <li><strong>Declarative:</strong> you describe what the UI should look like for a given state; React updates the page for you.</li>
+      <li><strong>Virtual DOM:</strong> React keeps a lightweight copy of the DOM in memory. When data changes it compares the new copy with the old one (<em>diffing</em>) and updates only the parts of the real DOM that changed. This makes updates fast.</li>
+      <li><strong>One-way data flow:</strong> data moves from parent to child through props.</li>
+      <li><strong>Single Page Application (SPA):</strong> one HTML page whose content is updated dynamically without full reloads.</li>
+    </ul>
+    <p>A minimal entry file (React 18):</p>
+<pre><code>import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(&lt;App /&gt;);</code></pre>
+
+    <h2>3. React JSX</h2>
+    <p><strong>JSX</strong> (JavaScript XML) is a syntax extension that lets you write HTML-like markup inside JavaScript. Browsers cannot read it directly, so a tool such as <strong>Babel</strong> converts it into <code>React.createElement()</code> calls.</p>
+<pre><code>const name = "Asha";
+const element = &lt;h1 className="title"&gt;Hello, {name}!&lt;/h1&gt;;</code></pre>
+    <h3>JSX rules</h3>
+    <ul>
+      <li>A component must return <strong>one parent element</strong>. Wrap siblings in a <code>&lt;div&gt;</code> or a Fragment <code>&lt;&gt; ... &lt;/&gt;</code> (a Fragment adds no extra DOM node).</li>
+      <li>Use <strong>curly braces</strong> <code>{ }</code> to embed any JavaScript expression: variables, function calls, calculations.</li>
+      <li>Use <code>className</code> instead of <code>class</code>, and <code>htmlFor</code> instead of <code>for</code>.</li>
+      <li>Attributes are written in camelCase: <code>onClick</code>, <code>tabIndex</code>.</li>
+      <li>Every tag must be closed. Self-closing tags need a slash: <code>&lt;img /&gt;</code>, <code>&lt;input /&gt;</code>.</li>
+      <li>Inline styles are an object: <code>style={{ color: "red", fontSize: "18px" }}</code>.</li>
+      <li>Comments inside JSX are written as <code>{/* comment */}</code>.</li>
+    </ul>
+    <h3>Conditional rendering and lists</h3>
+<pre><code>{isLoggedIn ? &lt;Dashboard /&gt; : &lt;Login /&gt;}
+{count &gt; 0 &amp;&amp; &lt;p&gt;You have {count} messages&lt;/p&gt;}
+
+&lt;ul&gt;
+  {fruits.map((f) =&gt; &lt;li key={f}&gt;{f}&lt;/li&gt;)}
+&lt;/ul&gt;</code></pre>
+    <div class="note-box warning">Each item in a list needs a unique <code>key</code> prop so React can track which items changed.</div>
+
+    <h2>4. React Components</h2>
+    <p>A component is an independent, reusable piece of UI. Component names <strong>must start with a capital letter</strong>; lowercase names are treated as normal HTML tags. There are two kinds.</p>
+    <h3>Function component (modern, recommended)</h3>
+<pre><code>function Welcome(props) {
+  return &lt;h2&gt;Welcome, {props.name}&lt;/h2&gt;;
+}
+
+// used like an HTML tag
+&lt;Welcome name="Asha" /&gt;</code></pre>
+    <h3>Class component (older style)</h3>
+<pre><code>import React, { Component } from "react";
+
+class Welcome extends Component {
+  render() {
+    return &lt;h2&gt;Welcome, {this.props.name}&lt;/h2&gt;;
+  }
+}</code></pre>
+    <table>
+      <tr><th>Function component</th><th>Class component</th></tr>
+      <tr><td>Plain JavaScript function that returns JSX</td><td>ES6 class that extends <code>React.Component</code></td></tr>
+      <tr><td>State and life-cycle through Hooks</td><td>State through <code>this.state</code>, life cycle through methods</td></tr>
+      <tr><td>No <code>this</code> keyword, shorter code</td><td>Needs <code>render()</code> and often a constructor</td></tr>
+    </table>
+    <p>Components can be <strong>nested</strong> and <strong>composed</strong> (a parent uses children), and each one is usually kept in its own file and imported with <code>import</code> / <code>export default</code>.</p>
+
+    <h2>5. React Component API</h2>
+    <p>The component API is the set of features a component uses to hold data, receive data and react to change.</p>
+    <table>
+      <tr><th>API</th><th>Meaning</th></tr>
+      <tr><td><code>render()</code></td><td>Required method of a class component; returns the JSX to display.</td></tr>
+      <tr><td><code>this.props</code> / <code>props</code></td><td>Read-only data passed from a parent component.</td></tr>
+      <tr><td><code>this.state</code></td><td>Private, changeable data of a component.</td></tr>
+      <tr><td><code>setState()</code></td><td>Updates state and tells React to re-render. Never change <code>this.state</code> directly.</td></tr>
+      <tr><td><code>forceUpdate()</code></td><td>Forces a re-render without a state change (rarely used).</td></tr>
+      <tr><td><code>defaultProps</code></td><td>Default values for props that were not passed.</td></tr>
+      <tr><td><code>setState(callback)</code></td><td>Callback runs after the state has been updated.</td></tr>
+    </table>
+<pre><code>class Counter extends React.Component {
+  state = { count: 0 };
+
+  increase = () =&gt; {
+    this.setState({ count: this.state.count + 1 });
+  };
+
+  render() {
+    return (
+      &lt;button onClick={this.increase}&gt;
+        Clicked {this.state.count} times
+      &lt;/button&gt;
+    );
+  }
+}</code></pre>
+    <div class="note-box tip"><code>setState()</code> may be asynchronous. When the new value depends on the old one, use the function form: <code>this.setState(prev =&gt; ({ count: prev.count + 1 }))</code>.</div>
+
+    <h2>6. React Component Life Cycle</h2>
+    <p>Every class component goes through three phases. React calls special <strong>life-cycle methods</strong> at each phase.</p>
+    <table>
+      <tr><th>Phase</th><th>Methods (in order)</th></tr>
+      <tr><td><strong>Mounting</strong> &ndash; component is created and added to the DOM</td><td><code>constructor()</code> &rarr; <code>static getDerivedStateFromProps()</code> &rarr; <code>render()</code> &rarr; <code>componentDidMount()</code></td></tr>
+      <tr><td><strong>Updating</strong> &ndash; props or state change</td><td><code>getDerivedStateFromProps()</code> &rarr; <code>shouldComponentUpdate()</code> &rarr; <code>render()</code> &rarr; <code>getSnapshotBeforeUpdate()</code> &rarr; <code>componentDidUpdate()</code></td></tr>
+      <tr><td><strong>Unmounting</strong> &ndash; component is removed from the DOM</td><td><code>componentWillUnmount()</code></td></tr>
+      <tr><td><strong>Error handling</strong></td><td><code>static getDerivedStateFromError()</code>, <code>componentDidCatch()</code></td></tr>
+    </table>
+    <h3>The important methods</h3>
+    <ul>
+      <li><code>componentDidMount()</code> runs once, right after the first render. Use it to fetch data, set up timers or subscriptions.</li>
+      <li><code>shouldComponentUpdate(nextProps, nextState)</code> returns <code>true</code> or <code>false</code> to decide whether to re-render. Useful for performance.</li>
+      <li><code>componentDidUpdate(prevProps, prevState)</code> runs after every update. Compare with the previous values before doing work, or you may cause an infinite loop.</li>
+      <li><code>componentWillUnmount()</code> runs just before removal. Use it to clear timers, cancel network requests and remove event listeners.</li>
+    </ul>
+<pre><code>class Clock extends React.Component {
+  state = { time: new Date().toLocaleTimeString() };
+
+  componentDidMount() {
+    this.timer = setInterval(() =&gt; {
+      this.setState({ time: new Date().toLocaleTimeString() });
+    }, 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer);   // clean up
+  }
+
+  render() {
+    return &lt;h2&gt;{this.state.time}&lt;/h2&gt;;
+  }
+}</code></pre>
+    <div class="note-box">In function components the same ideas are written with the <code>useEffect</code> Hook (see Unit V): mount = <code>useEffect(fn, [])</code>, update = <code>useEffect(fn, [dep])</code>, unmount = the cleanup function returned from <code>fn</code>.</div>
+
+    <h2>7. React Constructors</h2>
+    <p>The <code>constructor()</code> of a class component runs <strong>first</strong>, before the component is mounted. It is used for two things: <strong>initialising state</strong> and <strong>binding event-handler methods</strong>.</p>
+<pre><code>class Login extends React.Component {
+  constructor(props) {
+    super(props);                 // must be called first
+    this.state = { user: "" };    // initialise state
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(e) {
+    this.setState({ user: e.target.value });
+  }
+
+  render() {
+    return &lt;input value={this.state.user} onChange={this.handleChange} /&gt;;
+  }
+}</code></pre>
+    <ul>
+      <li>Always call <code>super(props)</code> before using <code>this</code>; otherwise <code>this.props</code> is undefined and React throws an error.</li>
+      <li>Do not call <code>setState()</code> in the constructor; assign <code>this.state</code> directly there.</li>
+      <li>Do not start network requests or timers in the constructor; use <code>componentDidMount()</code>.</li>
+      <li>Binding is not needed if you use arrow-function class properties (<code>handle = () =&gt; { ... }</code>).</li>
+    </ul>
+
+    <h2>8. React Dev Tools</h2>
+    <p><strong>React Developer Tools</strong> is a browser extension (Chrome, Firefox, Edge) that adds two tabs to the browser's developer tools:</p>
+    <ul>
+      <li><strong>Components</strong> &ndash; shows the component tree and lets you inspect and even edit the <em>props</em>, <em>state</em> and <em>hooks</em> of the selected component.</li>
+      <li><strong>Profiler</strong> &ndash; records renders and shows which components rendered, why, and how long they took, helping you find performance problems.</li>
+    </ul>
+    <p>The extension icon is coloured when the page uses React (blue for development builds, dark for production builds). Search for components by name and use the eye icon to find the matching DOM element.</p>
+
+    <h2>9. React Native vs ReactJS</h2>
+    <table>
+      <tr><th>Point</th><th>ReactJS</th><th>React Native</th></tr>
+      <tr><td>Purpose</td><td>Library for building <strong>web</strong> user interfaces</td><td>Framework for building <strong>mobile</strong> apps (Android and iOS)</td></tr>
+      <tr><td>Runs on</td><td>Web browser</td><td>Mobile devices (native)</td></tr>
+      <tr><td>Building blocks</td><td>HTML tags: <code>div</code>, <code>p</code>, <code>img</code></td><td>Native components: <code>View</code>, <code>Text</code>, <code>Image</code></td></tr>
+      <tr><td>Styling</td><td>CSS files, CSS-in-JS</td><td>JavaScript <code>StyleSheet</code> objects (no CSS files)</td></tr>
+      <tr><td>Rendering</td><td>Virtual DOM &rarr; browser DOM</td><td>Bridge to native UI components</td></tr>
+      <tr><td>Navigation</td><td>React Router</td><td>React Navigation</td></tr>
+      <tr><td>Setup</td><td>Create React App / Vite</td><td>Expo or React Native CLI, plus emulator or device</td></tr>
+    </table>
+    <p><strong>Common ground:</strong> both use JavaScript, JSX, components, props, state and Hooks, so knowledge of one transfers to the other.</p>
+
+    <h2>Quick revision</h2>
+    <ul>
+      <li>React = library for UIs; uses the <strong>Virtual DOM</strong> and <strong>components</strong>.</li>
+      <li><strong>JSX</strong> = HTML-like syntax in JavaScript; <code>className</code>, one parent element, <code>{ }</code> for expressions.</li>
+      <li>Component names start with a <strong>capital letter</strong>.</li>
+      <li>Life cycle: <strong>Mounting &rarr; Updating &rarr; Unmounting</strong>.</li>
+      <li><code>componentDidMount</code> = after first render; <code>componentWillUnmount</code> = cleanup.</li>
+      <li>Constructor: <code>super(props)</code> first, set initial state, bind handlers.</li>
+      <li>React Dev Tools: <strong>Components</strong> and <strong>Profiler</strong> tabs.</li>
+      <li>ReactJS = web; React Native = mobile.</li>
+    </ul>
+  </template>
+
+  <template id="notes-unit5">
+    <div class="note-box">
+      <strong>Unit V &middot; React Dataflow.</strong>
+      Study notes prepared from the R2023 syllabus topics: state, props, props validation, styling, Hooks and routing, deploying React and case studies for dynamic web applications.
+    </div>
+
+    <h2>1. React Dataflow &ndash; the Big Picture</h2>
+    <p>React uses <strong>unidirectional (one-way) data flow</strong>. Data is owned by a component and passed <em>down</em> to its children as props. Children cannot change the props they receive; to send information <em>up</em>, the parent passes a function as a prop and the child calls it.</p>
+    <table>
+      <tr><th></th><th>State</th><th>Props</th></tr>
+      <tr><td>Owned by</td><td>The component itself</td><td>The parent component</td></tr>
+      <tr><td>Changeable?</td><td>Yes (through <code>setState</code> / setter function)</td><td>No, read-only</td></tr>
+      <tr><td>Purpose</td><td>Data that changes over time (input text, counter, fetched data)</td><td>Configure a child and pass data down</td></tr>
+      <tr><td>Change causes</td><td>Re-render of that component</td><td>Re-render when the parent passes new values</td></tr>
+    </table>
+
+    <h2>2. React State</h2>
+    <p><strong>State</strong> is a component's private memory. When state changes, React re-renders the component so the screen matches the data.</p>
+    <h3>State in a class component</h3>
+<pre><code>class Counter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { count: 0 };
+  }
+  render() {
+    return (
+      &lt;button onClick={() =&gt; this.setState({ count: this.state.count + 1 })}&gt;
+        Count: {this.state.count}
+      &lt;/button&gt;
+    );
+  }
+}</code></pre>
+    <h3>State in a function component (useState)</h3>
+<pre><code>import { useState } from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0);
+  return (
+    &lt;button onClick={() =&gt; setCount(count + 1)}&gt;
+      Count: {count}
+    &lt;/button&gt;
+  );
+}</code></pre>
+    <ul>
+      <li><code>useState(initial)</code> returns an array: <strong>[current value, setter function]</strong>.</li>
+      <li>Never modify state directly (<code>count = 5</code> does nothing useful). Always use the setter.</li>
+      <li>For objects and arrays, create a new copy: <code>setUser({ ...user, age: 21 })</code>, <code>setItems([...items, newItem])</code>.</li>
+      <li>If the new value depends on the old, use the updater form: <code>setCount(c =&gt; c + 1)</code>.</li>
+      <li><strong>Lifting state up:</strong> when two siblings need the same data, move the state to their closest common parent and pass it down as props.</li>
+    </ul>
+    <h3>Handling forms (controlled components)</h3>
+<pre><code>function NameForm() {
+  const [name, setName] = useState("");
+  return (
+    &lt;form onSubmit={(e) =&gt; { e.preventDefault(); alert(name); }}&gt;
+      &lt;input value={name} onChange={(e) =&gt; setName(e.target.value)} /&gt;
+      &lt;button type="submit"&gt;Submit&lt;/button&gt;
+    &lt;/form&gt;
+  );
+}</code></pre>
+
+    <h2>3. React Props</h2>
+    <p><strong>Props</strong> (properties) are the inputs of a component, passed like HTML attributes. They are <strong>read-only</strong>.</p>
+<pre><code>function Greeting({ name, age = 18 }) {      // destructuring + default value
+  return &lt;p&gt;{name} is {age} years old&lt;/p&gt;;
+}
+
+&lt;Greeting name="Asha" age={20} /&gt;
+&lt;Greeting name="Ravi" /&gt;                     {/* age defaults to 18 */}</code></pre>
+    <ul>
+      <li>Strings can be written in quotes; everything else (numbers, booleans, arrays, objects, functions) goes inside <code>{ }</code>.</li>
+      <li><code>props.children</code> holds whatever is placed between the opening and closing tags of a component.</li>
+      <li>The spread operator passes many props at once: <code>&lt;Card {...person} /&gt;</code>.</li>
+    </ul>
+    <h3>Child to parent communication</h3>
+<pre><code>function Parent() {
+  const [msg, setMsg] = useState("");
+  return (
+    &lt;&gt;
+      &lt;Child onSend={setMsg} /&gt;
+      &lt;p&gt;Child said: {msg}&lt;/p&gt;
+    &lt;/&gt;
+  );
+}
+
+function Child({ onSend }) {
+  return &lt;button onClick={() =&gt; onSend("Hello!")}&gt;Say hello&lt;/button&gt;;
+}</code></pre>
+    <div class="note-box warning">A component must never change its own props. If a value has to change, it belongs in state.</div>
+
+    <h2>4. React Props Validation</h2>
+    <p>Props validation checks the <strong>type</strong> of props at run time and warns in the browser console (development mode) when a wrong or missing value is passed. It is done with the <code>prop-types</code> package.</p>
+<pre><code>npm install prop-types</code></pre>
+<pre><code>import PropTypes from "prop-types";
+
+function User({ name, age, hobbies, onSelect }) {
+  return &lt;p&gt;{name} ({age})&lt;/p&gt;;
+}
+
+User.propTypes = {
+  name: PropTypes.string.isRequired,   // must be given
+  age: PropTypes.number,
+  hobbies: PropTypes.arrayOf(PropTypes.string),
+  onSelect: PropTypes.func
+};
+
+User.defaultProps = {
+  age: 18
+};</code></pre>
+    <table>
+      <tr><th>Validator</th><th>Checks for</th></tr>
+      <tr><td><code>PropTypes.string</code>, <code>number</code>, <code>bool</code></td><td>Primitive types</td></tr>
+      <tr><td><code>PropTypes.array</code>, <code>object</code>, <code>func</code></td><td>Arrays, objects, functions</td></tr>
+      <tr><td><code>PropTypes.arrayOf(type)</code></td><td>Array whose items are of the given type</td></tr>
+      <tr><td><code>PropTypes.shape({...})</code></td><td>Object with a particular structure</td></tr>
+      <tr><td><code>PropTypes.oneOf([...])</code></td><td>One of a fixed set of values</td></tr>
+      <tr><td><code>PropTypes.node</code>, <code>element</code></td><td>Anything renderable, or a React element</td></tr>
+      <tr><td><code>.isRequired</code></td><td>Added at the end to make a prop mandatory</td></tr>
+    </table>
+    <div class="note-box tip">Validation only warns; it does not stop the app. Large projects often use <strong>TypeScript</strong> instead for compile-time checking.</div>
+
+    <h2>5. Styling React</h2>
+    <p>There are several ways to style a React application.</p>
+    <h3>1. Inline styles</h3>
+    <p>The <code>style</code> attribute takes a JavaScript <strong>object</strong> with camelCase property names.</p>
+<pre><code>&lt;h1 style={{ color: "white", backgroundColor: "navy", fontSize: "24px" }}&gt;Hello&lt;/h1&gt;</code></pre>
+    <h3>2. Normal CSS file</h3>
+<pre><code>import "./App.css";
+
+&lt;div className="card"&gt;...&lt;/div&gt;</code></pre>
+    <h3>3. CSS Modules</h3>
+    <p>Files named <code>Name.module.css</code> are <strong>scoped</strong> to the component, so class names never clash.</p>
+<pre><code>import styles from "./Button.module.css";
+
+&lt;button className={styles.primary}&gt;Save&lt;/button&gt;</code></pre>
+    <h3>4. CSS-in-JS and frameworks</h3>
+    <ul>
+      <li><strong>styled-components</strong> / <strong>Emotion</strong>: write CSS inside JavaScript and attach it to a component.</li>
+      <li><strong>Bootstrap / React-Bootstrap</strong>, <strong>Tailwind CSS</strong>, <strong>Material UI</strong>: ready-made classes or components.</li>
+    </ul>
+    <h3>Dynamic styling</h3>
+<pre><code>&lt;button className={isActive ? "btn active" : "btn"}&gt;Tab&lt;/button&gt;
+&lt;p style={{ color: score &gt;= 50 ? "green" : "red" }}&gt;{score}&lt;/p&gt;</code></pre>
+
+    <h2>6. Hooks</h2>
+    <p><strong>Hooks</strong> (React 16.8) let function components use state, life-cycle features and other React abilities without writing a class.</p>
+    <h3>Rules of Hooks</h3>
+    <ul>
+      <li>Call Hooks only at the <strong>top level</strong> of a component, never inside loops, conditions or nested functions.</li>
+      <li>Call Hooks only from <strong>React function components</strong> or from your own custom Hooks.</li>
+      <li>Hook names start with <code>use</code>.</li>
+    </ul>
+    <h3>Common built-in Hooks</h3>
+    <table>
+      <tr><th>Hook</th><th>Use</th></tr>
+      <tr><td><code>useState</code></td><td>Adds state to a function component.</td></tr>
+      <tr><td><code>useEffect</code></td><td>Runs side effects (fetching data, timers, subscriptions, updating the page title) after render.</td></tr>
+      <tr><td><code>useContext</code></td><td>Reads shared data from a Context without passing props through every level.</td></tr>
+      <tr><td><code>useRef</code></td><td>Holds a mutable value or a reference to a DOM element; changing it does not re-render.</td></tr>
+      <tr><td><code>useReducer</code></td><td>State management for complex state, using a reducer function.</td></tr>
+      <tr><td><code>useMemo</code>, <code>useCallback</code></td><td>Remember a calculated value or a function between renders (performance).</td></tr>
+    </table>
+    <h3>useEffect</h3>
+<pre><code>useEffect(() =&gt; {
+  // side effect code
+  return () =&gt; { /* optional cleanup */ };
+}, [dependencies]);</code></pre>
+    <table>
+      <tr><th>Dependency array</th><th>When the effect runs</th></tr>
+      <tr><td>Not given</td><td>After every render</td></tr>
+      <tr><td><code>[]</code> (empty)</td><td>Only once, after the first render (like <code>componentDidMount</code>)</td></tr>
+      <tr><td><code>[a, b]</code></td><td>After the first render and whenever <code>a</code> or <code>b</code> change</td></tr>
+    </table>
+<pre><code>function Users() {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() =&gt; {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((res) =&gt; res.json())
+      .then((data) =&gt; setUsers(data));
+  }, []);                              // run once
+
+  return (
+    &lt;ul&gt;
+      {users.map((u) =&gt; &lt;li key={u.id}&gt;{u.name}&lt;/li&gt;)}
+    &lt;/ul&gt;
+  );
+}</code></pre>
+    <h3>Custom Hook</h3>
+    <p>A custom Hook is a function starting with <code>use</code> that reuses Hook logic between components.</p>
+<pre><code>function useCounter(start = 0) {
+  const [count, setCount] = useState(start);
+  const increase = () =&gt; setCount((c) =&gt; c + 1);
+  return [count, increase];
+}</code></pre>
+
+    <h2>7. Routing</h2>
+    <p>Because React apps are single-page applications, <strong>routing</strong> shows different components for different URLs without reloading the page. The standard library is <strong>React Router</strong>.</p>
+<pre><code>npm install react-router-dom</code></pre>
+<pre><code>import { BrowserRouter, Routes, Route, Link, useParams, useNavigate } from "react-router-dom";
+
+function App() {
+  return (
+    &lt;BrowserRouter&gt;
+      &lt;nav&gt;
+        &lt;Link to="/"&gt;Home&lt;/Link&gt;
+        &lt;Link to="/about"&gt;About&lt;/Link&gt;
+      &lt;/nav&gt;
+
+      &lt;Routes&gt;
+        &lt;Route path="/" element={&lt;Home /&gt;} /&gt;
+        &lt;Route path="/about" element={&lt;About /&gt;} /&gt;
+        &lt;Route path="/user/:id" element={&lt;User /&gt;} /&gt;
+        &lt;Route path="*" element={&lt;NotFound /&gt;} /&gt;
+      &lt;/Routes&gt;
+    &lt;/BrowserRouter&gt;
+  );
+}
+
+function User() {
+  const { id } = useParams();        // read the URL parameter
+  return &lt;h2&gt;User {id}&lt;/h2&gt;;
+}</code></pre>
+    <table>
+      <tr><th>Item</th><th>Purpose</th></tr>
+      <tr><td><code>BrowserRouter</code></td><td>Wraps the app and enables routing using the browser history.</td></tr>
+      <tr><td><code>Routes</code> / <code>Route</code></td><td>Maps a URL <code>path</code> to the <code>element</code> to display.</td></tr>
+      <tr><td><code>Link</code> / <code>NavLink</code></td><td>Navigation link that does not reload the page (<code>NavLink</code> also marks the active link).</td></tr>
+      <tr><td><code>useParams</code></td><td>Reads dynamic parts of the URL such as <code>:id</code>.</td></tr>
+      <tr><td><code>useNavigate</code></td><td>Navigate from code, for example after a form is submitted.</td></tr>
+      <tr><td><code>path="*"</code></td><td>Catch-all route for pages that do not exist (404).</td></tr>
+    </table>
+
+    <h2>8. Deploying React</h2>
+    <p>Deploying means putting the finished app on a web server so everyone can open it.</p>
+    <ol>
+      <li><strong>Test</strong> the app and fix console warnings.</li>
+      <li><strong>Build</strong> the production version: <code>npm run build</code>. This creates a <code>build</code> (or <code>dist</code> in Vite) folder with minified HTML, CSS and JavaScript.</li>
+      <li><strong>Upload</strong> that folder to a hosting service or web server.</li>
+      <li>Configure the server so that every URL returns <code>index.html</code>; otherwise refreshing a route such as <code>/about</code> shows a 404.</li>
+    </ol>
+    <table>
+      <tr><th>Option</th><th>Notes</th></tr>
+      <tr><td>Netlify, Vercel</td><td>Connect a GitHub repository; every push is built and published automatically.</td></tr>
+      <tr><td>GitHub Pages</td><td>Free static hosting; set <code>"homepage"</code> in <code>package.json</code> and use the <code>gh-pages</code> package.</td></tr>
+      <tr><td>Firebase Hosting</td><td>Google's hosting: <code>firebase init</code> then <code>firebase deploy</code>.</td></tr>
+      <tr><td>Own server (Nginx / Apache)</td><td>Copy the build folder to the web root and add a fallback to <code>index.html</code>.</td></tr>
+    </table>
+    <div class="note-box tip">Keep secrets (API keys) out of React code; anything in the build is visible to users. Use environment variables for settings that change between development and production (names must start with <code>REACT_APP_</code> in Create React App).</div>
+
+    <h2>9. Case Studies: Building Dynamic Web Applications</h2>
+    <h3>Case study 1 &ndash; To-do list</h3>
+    <ul>
+      <li><strong>State:</strong> an array of tasks and the text of the input box.</li>
+      <li><strong>Props:</strong> each <code>TodoItem</code> gets the task and callbacks <code>onToggle</code> and <code>onDelete</code>.</li>
+      <li><strong>Concepts used:</strong> <code>useState</code>, controlled input, <code>map</code> with <code>key</code>, lifting state up.</li>
+    </ul>
+<pre><code>function TodoApp() {
+  const [tasks, setTasks] = useState([]);
+  const [text, setText] = useState("");
+
+  const addTask = () =&gt; {
+    if (!text.trim()) return;
+    setTasks([...tasks, { id: Date.now(), text, done: false }]);
+    setText("");
+  };
+  const toggle = (id) =&gt;
+    setTasks(tasks.map((t) =&gt; (t.id === id ? { ...t, done: !t.done } : t)));
+  const remove = (id) =&gt; setTasks(tasks.filter((t) =&gt; t.id !== id));
+
+  return (
+    &lt;div&gt;
+      &lt;input value={text} onChange={(e) =&gt; setText(e.target.value)} /&gt;
+      &lt;button onClick={addTask}&gt;Add&lt;/button&gt;
+      &lt;ul&gt;
+        {tasks.map((t) =&gt; (
+          &lt;li key={t.id} style={{ textDecoration: t.done ? "line-through" : "none" }}&gt;
+            &lt;span onClick={() =&gt; toggle(t.id)}&gt;{t.text}&lt;/span&gt;
+            &lt;button onClick={() =&gt; remove(t.id)}&gt;x&lt;/button&gt;
+          &lt;/li&gt;
+        ))}
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+    <h3>Case study 2 &ndash; Weather / data-fetching app</h3>
+    <ul>
+      <li><strong>State:</strong> city name, weather data, loading flag, error message.</li>
+      <li><strong>Concepts used:</strong> <code>useEffect</code> with a dependency array to call an API, conditional rendering for loading and error views.</li>
+    </ul>
+    <h3>Case study 3 &ndash; Multi-page website or shop</h3>
+    <ul>
+      <li><strong>Routing:</strong> <code>/</code> home, <code>/products</code> list, <code>/products/:id</code> details, <code>/cart</code>.</li>
+      <li><strong>Shared state:</strong> the cart is kept in a parent component or in <code>useContext</code> so every page can read and update it.</li>
+      <li><strong>Styling:</strong> CSS Modules or a UI library; <strong>deployment:</strong> Netlify or Vercel.</li>
+    </ul>
+    <h3>Typical steps for any dynamic app</h3>
+    <ol>
+      <li>Break the design into components.</li>
+      <li>Decide which component owns each piece of state.</li>
+      <li>Pass data down with props; pass callbacks down for child-to-parent updates.</li>
+      <li>Fetch data with <code>useEffect</code> and show loading and error states.</li>
+      <li>Add routing for multiple pages, then style, test, build and deploy.</li>
+    </ol>
+
+    <h2>Quick revision</h2>
+    <ul>
+      <li>Data flows <strong>down</strong> through props; events flow <strong>up</strong> through callback functions.</li>
+      <li><strong>State</strong> = changeable and private; <strong>props</strong> = read-only and passed in.</li>
+      <li><code>const [value, setValue] = useState(initial)</code>; never change state directly.</li>
+      <li><code>prop-types</code> validates props at run time (<code>isRequired</code> for mandatory props).</li>
+      <li>Styling: inline object, CSS file, CSS Modules, styled-components, UI libraries.</li>
+      <li><code>useEffect(fn, [])</code> runs once after the first render; the returned function is the cleanup.</li>
+      <li>Rules of Hooks: top level only, and only in function components or custom Hooks.</li>
+      <li>React Router: <code>BrowserRouter</code>, <code>Routes</code>, <code>Route</code>, <code>Link</code>, <code>useParams</code>.</li>
+      <li>Deploy with <code>npm run build</code>, then upload the build folder (Netlify, Vercel, GitHub Pages, Firebase).</li>
+    </ul>
+  </template>
+
+  <!-- ===== Confirmation dialog (used for submit and exit) ===== -->
+  <div id="modal" class="modal-overlay" hidden>
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-message">
+      <h3 id="modal-title" class="modal-title"></h3>
+      <p id="modal-message" class="modal-message"></p>
+      <div class="modal-actions">
+        <button type="button" id="modal-cancel" class="btn btn-ghost">Cancel</button>
+        <button type="button" id="modal-confirm" class="btn btn-primary">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
